@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Androiapp">
         <activity
+            android:name=".Alku"
+            android:exported="false" />
+        <activity
             android:name=".kofeiininLisays"
             android:exported="false" />
         <activity

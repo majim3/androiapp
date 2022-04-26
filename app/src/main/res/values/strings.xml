@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">androiapp</string>
+    <string name="nimi">Anna nimi</string>
+    <string name="ika">Anna ikä</string>
 </resources>
