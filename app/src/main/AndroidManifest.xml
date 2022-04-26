@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Androiapp">
         <activity
+            android:name=".kofeiininLisays"
+            android:exported="false" />
+        <activity
+            android:name=".tiedot"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
