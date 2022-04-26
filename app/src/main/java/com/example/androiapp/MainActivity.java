@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //Pertun kommentti lelol
+        //toine
         TextView teksti = (TextView) findViewById(R.id.textView);
         teksti.setText("hEI KAikki");
     }
