@@ -3,18 +3,26 @@ package com.example.androiapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    private EditText fakta;
+    private Button faktaPainike;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Pertun kommentti lelol
-        //toine
-        TextView teksti = (TextView) findViewById(R.id.textView);
-        teksti.setText("hEI KAikki");
+        TextView teksti = (TextView) findViewById(R.id.saldo);
+        fakta = (EditText) findViewById(R.id.faktaText) ;
+    }
+
+    public void faktaNappi(){
+        fakta.setText("faktaaa");
+
+
     }
 
 }
