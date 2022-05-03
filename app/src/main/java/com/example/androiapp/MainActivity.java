@@ -2,6 +2,7 @@ package com.example.androiapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView fakta;
     private int rand;
     private String[] faktoja;
+    private Intent intent;
 
 
 
@@ -26,14 +28,20 @@ public class MainActivity extends AppCompatActivity {
                                 "Caffein also causes Dependency, so you need to take more of it to get the same effects",
                                 "Caffein also causes your intestines to work faster"};
 
-
-
     }
 
     public void faktaNappi(View v){
         rand = (int) (Math.random() * 8);
         fakta.setText(faktoja[rand]);
     }
+
+   public void lisays(View v){
+        intent = new Intent(MainActivity.this, kofeiininLisays.class);
+        startActivity(intent);
+   }
+
+
+
 
 
 }

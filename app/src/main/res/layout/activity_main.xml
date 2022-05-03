@@ -40,12 +40,14 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/button2"
+
+        android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="237dp"
-        android:text="Button"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="320dp"
+        android:onClick="historiaPainike"
+        android:text="Hitoria"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,21 +55,22 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="lisays"
+        android:text="Lisää tuote"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="53dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="150dp"
         android:layout_marginBottom="378dp"
-        android:text="TextView"
+        android:text="kofeiini määrä"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/faktaText"
         app:layout_constraintStart_toStartOf="@+id/saldo"
         app:layout_constraintTop_toTopOf="parent" />
