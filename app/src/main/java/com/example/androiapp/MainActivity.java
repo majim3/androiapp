@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
     public void faktaNappi(View v){
         rand = (int) (Math.random() * 8);
         fakta.setText(faktoja[rand]);
-
-
     }
 
 
