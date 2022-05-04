@@ -51,7 +51,7 @@ public class Alku extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         /**
-         *Alhaalla asetetaan onClick tapahtuma "ika" kohtaan missä avautuu kalenteri, josta käyttäjä voi valita oman syntymäpäivänsä.
+         *Alhaalla asetetaan onClick tapahtuma "ika" kohtaan missä avautuu kalenteri, josta käyttäjä voi valita oman syntymäpäivänsä..
          */
 
 
