@@ -77,43 +77,5 @@ public class Historia extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
 
-        SharedPreferences sharedPreferences2 = getSharedPreferences("shared preferences", MODE_PRIVATE);
-        Gson gson2 = new Gson();
-        String json2 = sharedPreferences2.getString("Lisatyt tuotteet", null);
-        Type type = new TypeToken<ArrayList<LisattyTuote>>() {}.getType();
-        lisatyt = gson2.fromJson(json2, type);
-        if(lisatyt == null){
-            lisatyt = new ArrayList<>();
-        }
-
-        Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat pvm = new SimpleDateFormat("dd-MMM-yyyy");
-        String pvmTallaHetkella = pvm.format(calendar.getTime());
-        int i = 0;
-        double paivanKofeiini = 0;
-        while(i < lisatyt.size()){
-            if(lisatyt.get(i).getPvm().equals(pvmTallaHetkella)){
-                paivanKofeiini = paivanKofeiini + lisatyt.get(i).getKofeiini();
-                i++;
-            }
-            else {
-                i++;
-            }
-        }
-        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("Paivan kofeiini", String.valueOf(paivanKofeiini));
-        editor.apply();
-        adapteri.notifyDataSetChanged();
-
-        SharedPreferences sharedPreferences3 = getSharedPreferences("shared preferences", MODE_PRIVATE);
-        String ladattuKofeiini = sharedPreferences3.getString("Paivan kofeiini", "0");
-
-        TextView kofeiiniTeksti = findViewById(R.id.paivanKofeiini);
-        kofeiiniTeksti.setText(ladattuKofeiini);
-    }
 }

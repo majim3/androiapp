@@ -9,8 +9,9 @@
         android:id="@+id/textView4"
         android:layout_width="139dp"
         android:layout_height="46dp"
-        android:text="App name"
+        android:text="CaffeineFix"
         android:textSize="20dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -37,7 +38,7 @@
         android:layout_height="54dp"
         android:layout_marginTop="84dp"
         android:onClick="klikattu"
-        android:text="Button"
+        android:text="Valmis"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 

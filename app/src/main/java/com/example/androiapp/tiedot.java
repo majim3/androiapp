@@ -37,8 +37,7 @@ public class tiedot extends AppCompatActivity {
     public void clicked(View view) {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.remove("User name: " );
-        editor.remove("User age: ");
+        editor.clear();
         editor.apply();
         Intent intent = new Intent(tiedot.this, MainActivity.class);
         startActivity(intent);

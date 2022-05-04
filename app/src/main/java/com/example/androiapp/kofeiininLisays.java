@@ -60,7 +60,12 @@ public class kofeiininLisays extends AppCompatActivity {
                 String json = gson.toJson(tallennetut);
                 editor.putString("Tallennetut tuotteet", json);
                 editor.apply();
+                Context context = getApplicationContext();
+                CharSequence text = "Tuotteen: " + tallennettavanNimi + " tallennus onnistui!";
+                int duration = Toast.LENGTH_SHORT;
 
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
             }
         }
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, tallennetut);
@@ -126,18 +131,39 @@ public class kofeiininLisays extends AppCompatActivity {
         EditText syotettyKofeiini = findViewById(R.id.syotettyKofeiini);
         EditText syotettyHinta = findViewById(R.id.syotettyHinta);
         if(!syotettyKofeiini.getText().toString().equals("") && !syotettyHinta.getText().toString().equals("")) {
-            Calendar calendar = Calendar.getInstance();
-            SimpleDateFormat aika = new SimpleDateFormat("hh:mm");
-            SimpleDateFormat pvm = new SimpleDateFormat("dd-MMM-yyyy");
-            String lisaamisAika = aika.format(calendar.getTime());
-            String lisaamisPvm = pvm.format(calendar.getTime());
-            lisatyt.add(new LisattyTuote(Double.parseDouble(syotettyKofeiini.getText().toString()), Double.parseDouble(syotettyHinta.getText().toString()), lisaamisPvm, lisaamisAika));
-            SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            Gson gson = new Gson();
-            String json = gson.toJson(lisatyt);
-            editor.putString("Lisatyt tuotteet", json);
-            editor.apply();
+            Boolean onkoDouble = true;
+            try {
+                Double num = Double.parseDouble(syotettyHinta.getText().toString());
+                Double num2 = Double.parseDouble(syotettyKofeiini.getText().toString());
+            } catch (NumberFormatException e) {
+                onkoDouble = false;
+            }
+            if(onkoDouble){
+                Calendar calendar = Calendar.getInstance();
+                SimpleDateFormat aika = new SimpleDateFormat("hh:mm");
+                SimpleDateFormat pvm = new SimpleDateFormat("dd-MMM-yyyy");
+                String lisaamisAika = aika.format(calendar.getTime());
+                String lisaamisPvm = pvm.format(calendar.getTime());
+                lisatyt.add(new LisattyTuote(Double.parseDouble(syotettyKofeiini.getText().toString()), Double.parseDouble(syotettyHinta.getText().toString()), lisaamisPvm, lisaamisAika));
+                SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                Gson gson = new Gson();
+                String json = gson.toJson(lisatyt);
+                editor.putString("Lisatyt tuotteet", json);
+                editor.apply();
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.putExtra("LisaysOnnistui", true);
+                startActivity(intent);
+            }
+            else {
+                Context context = getApplicationContext();
+                CharSequence text = "Pisteitä ei saa olla kuin 1!";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
+
         }
         else {
             Context context = getApplicationContext();
@@ -158,7 +184,9 @@ public class kofeiininLisays extends AppCompatActivity {
             if (lisatyt == null) {
                 lisatyt = new ArrayList<>();
             }
-            if(klikattuTuote > -1 ) {
+            TextView valittuTuote = findViewById(R.id.valitunTuotteenTeksti);
+
+            if(klikattuTuote > -1 && tallennetut.size() > 0 && !valittuTuote.getText().equals("")) {
                 Double kofeiini = tallennetut.get(klikattuTuote).getKofeiini();
                 Double hinta = tallennetut.get(klikattuTuote).getHinta();
                 Calendar calendar = Calendar.getInstance();
@@ -173,6 +201,11 @@ public class kofeiininLisays extends AppCompatActivity {
                 String json = gson.toJson(lisatyt);
                 editor.putString("Lisatyt tuotteet", json);
                 editor.apply();
+                Intent intent = new Intent(this, MainActivity.class);
+                Bundle extras = new Bundle();
+                extras.putString("EXTRA_LISAYS", "Lisätty");
+                intent.putExtras(extras);
+                startActivity(intent);
             }
 
     }

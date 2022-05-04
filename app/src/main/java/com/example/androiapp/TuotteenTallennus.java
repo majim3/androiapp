@@ -35,27 +35,41 @@ public class TuotteenTallennus extends AppCompatActivity {
         EditText kofeiini = findViewById(R.id.tuotteenKofeiini);
         EditText hinta = findViewById(R.id.tuotteenHinta);
         if(!nimi.getText().toString().equals("") && !kofeiini.getText().toString().equals("") && !hinta.getText().toString().equals("")){
-            SharedPreferences sharedPreferences2 = getSharedPreferences("shared preferences", MODE_PRIVATE);
-            Gson gson2 = new Gson();
-            String json2 = sharedPreferences2.getString("Tallennetut tuotteet", null);
-            Type type = new TypeToken<ArrayList<TallennettuTuote>>() {}.getType();
-            tallennetut = gson2.fromJson(json2, type);
-            if(tallennetut == null){
-                tallennetut = new ArrayList<>();
+            Boolean onkoDouble = true;
+            try {
+                Double num = Double.parseDouble(kofeiini.getText().toString());
+                Double num2 = Double.parseDouble(hinta.getText().toString());
+            } catch (NumberFormatException e) {
+                onkoDouble = false;
             }
-            TallennettuTuote testiTuote = new TallennettuTuote(nimi.getText().toString(), Double.parseDouble(kofeiini.getText().toString()),Double.parseDouble(hinta.getText().toString()));
-            if(!tallennetut.contains(testiTuote)){
-                Bundle extras = new Bundle();
-                extras.putString("EXTRA_NIMI", nimi.getText().toString());
-                extras.putDouble("EXTRA_KOFEIINI", Double.parseDouble(kofeiini.getText().toString()));
-                extras.putDouble("EXTRA_HINTA", Double.parseDouble(hinta.getText().toString()));
-                intent.putExtras(extras);
-                startActivity(intent);
+            if(onkoDouble){
+                SharedPreferences sharedPreferences2 = getSharedPreferences("shared preferences", MODE_PRIVATE);
+                Gson gson2 = new Gson();
+                String json2 = sharedPreferences2.getString("Tallennetut tuotteet", null);
+                Type type = new TypeToken<ArrayList<TallennettuTuote>>() {}.getType();
+                tallennetut = gson2.fromJson(json2, type);
+                if(tallennetut == null){
+                    tallennetut = new ArrayList<>();
+                }
+                TallennettuTuote testiTuote = new TallennettuTuote(nimi.getText().toString(), Double.parseDouble(kofeiini.getText().toString()),Double.parseDouble(hinta.getText().toString()));
+                if(!tallennetut.contains(testiTuote)){
+                    Bundle extras = new Bundle();
+                    extras.putString("EXTRA_NIMI", nimi.getText().toString());
+                    extras.putDouble("EXTRA_KOFEIINI", Double.parseDouble(kofeiini.getText().toString()));
+                    extras.putDouble("EXTRA_HINTA", Double.parseDouble(hinta.getText().toString()));
+                    intent.putExtras(extras);
+                    startActivity(intent);
+                }
+                else{
+                    TextView varoitus = findViewById(R.id.varoitusTeksti);
+                    varoitus.setText(nimi.getText().toString() + " on jo tallennettu!");
+                }
             }
-            else{
+            else {
                 TextView varoitus = findViewById(R.id.varoitusTeksti);
-                varoitus.setText(nimi.getText().toString() + " on jo tallennettu!");
+                varoitus.setText("Luvuissa saa olla vain 1 piste!");
             }
+
 
 
         }

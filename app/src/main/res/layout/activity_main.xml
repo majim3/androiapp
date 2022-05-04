@@ -9,43 +9,46 @@
 
     <TextView
         android:id="@+id/saldo"
-        android:layout_width="167dp"
-        android:layout_height="39dp"
+        android:layout_width="398dp"
+        android:layout_height="45dp"
         android:text="saldo tähän"
         android:textAlignment="center"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.079" />
+        app:layout_constraintVertical_bias="0.056" />
 
     <TextView
         android:id="@+id/faktaText"
         android:layout_width="269dp"
         android:layout_height="108dp"
         android:ems="10"
-        android:gravity="start|top"
+        android:gravity="center"
         android:inputType="textMultiLine"
         android:onClick="faktaNappi"
-        android:text="tähän tulee infoa kofeiini yli käytöstä"
+        android:text="Click for a random fact"
+
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.972" />
+        app:layout_constraintVertical_bias="0.947" />
 
     <Button
 
         android:id="@+id/button4"
         android:layout_width="133dp"
         android:layout_height="52dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="320dp"
         android:onClick="historiaPainike"
         android:text="Historia"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,34 +56,48 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginBottom="20dp"
         android:onClick="lisays"
         android:text="Lisää tuote"
         app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_width="343dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
         android:text="kofeiini määrä"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/saldo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.252" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saldo" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="135dp"
         android:layout_height="51dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:onClick="tietoNappi"
         android:text="Tiedot"
+
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+    <TextView
+        android:id="@+id/kofeiiniStatus"
+        android:layout_width="360dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Olet käyttänyt iha liikaa nobo"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
