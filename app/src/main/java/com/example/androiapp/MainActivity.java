@@ -165,8 +165,9 @@ public class MainActivity extends AppCompatActivity {
         }
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
+        String saldoString = String.format("%.2f", saldo);
 
-        editor.putString("Saldo", String.valueOf(saldo));
+        editor.putString("Saldo", saldoString);
         editor.apply();
 
         /**
