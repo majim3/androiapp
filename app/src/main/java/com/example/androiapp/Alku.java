@@ -61,7 +61,7 @@ public class Alku extends AppCompatActivity {
         ika.setOnClickListener(new View.OnClickListener() {
             /**
              * onClick tapahtuma missä avautuu kalenteri
-             * @param view missä asetetaan näytölle data
+             * @param view on mikä ottaa vastaan onClickeventin
              */
             @Override
             public void onClick(View view) {
@@ -104,7 +104,7 @@ public class Alku extends AppCompatActivity {
 
     /**
      * Tässä tehdään onClick tapahtuma "valmis" napille minkä jälkeen sovellus ottaa tiedot talteen ja vie käyttäjän toiseen aktiviteettiin.
-     * @param view on mitä klikataan
+     * @param view on mikä ottaa vastaan onClickeventin
      */
 
     @RequiresApi(api = Build.VERSION_CODES.O)

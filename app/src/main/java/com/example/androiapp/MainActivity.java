@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Nappi minkä avulla voidaan satunnaistaa faktojen ilmestyminen
-     * @param v on mitä klikataan
+     * @param v on mikä ottaa vastaan onClickeventin
      */
 
     public void faktaNappi(View v){
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Nappi josta pääsee lisäys aktiviteettiin.
-     * @param v on mitä klikataan
+     * @param v on mikä ottaa vastaan onClickeventin
      */
 
    public void lisays(View v){
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Nappi josta pääsee Historia aktiviteetiin.
-     * @param view on mitä klikataan
+     * @param view on mikä ottaa vastaan onClickeventin
      */
    public void historiaPainike(View view){
         historiaSivu = new Intent(MainActivity.this, Historia.class);
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Nappi josta pääsee Tiedot aktiviteettiin.
-     * @param v on mitä klikataan
+     * @param v on mikä ottaa vastaan onClickeventin
      */
 
    public void tietoNappi(View v){
