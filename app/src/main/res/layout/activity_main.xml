@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="faktaText"
     tools:context=".MainActivity"
     tools:ignore="OnClick">
 
@@ -24,9 +23,8 @@
 
     <TextView
         android:id="@+id/faktaText"
-        android:layout_width="312dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="52dp"
+        android:layout_width="269dp"
+        android:layout_height="108dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
@@ -34,10 +32,10 @@
         android:text="tähän tulee infoa kofeiini yli käytöstä"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.972" />
 
     <Button
 
@@ -47,7 +45,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="320dp"
         android:onClick="historiaPainike"
-        android:text="Hitoria"
+        android:text="Historia"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,21 +64,20 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="378dp"
+        android:layout_marginStart="20dp"
         android:text="kofeiini määrä"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/faktaText"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/saldo"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.252" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
         android:onClick="tietoNappi"
         android:text="Tiedot"
         app:layout_constraintStart_toStartOf="parent"

@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private String[] faktoja;
     private Intent lisaysSivu;
     private Intent tietoSivu;
+    private Intent historiaSivu;
 
 
 
@@ -39,6 +40,12 @@ public class MainActivity extends AppCompatActivity {
    public void lisays(View v){
         lisaysSivu = new Intent(MainActivity.this, kofeiininLisays.class);
         startActivity(lisaysSivu);
+
+   }
+   public void historiaPainike(View view){
+        historiaSivu = new Intent(MainActivity.this, Historia.class);
+        startActivity(historiaSivu);
+
    }
 
    public void tietoNappi(View v){
