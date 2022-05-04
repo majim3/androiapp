@@ -24,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         TextView teksti = (TextView) findViewById(R.id.saldo);
         fakta = (TextView) findViewById(R.id.faktaText) ;
-        faktoja = new String[] {"Caffein may result in hedaches.", "Dependency, so you need to take more of it to get the same results.",
-                                "Did you know that caffein causes faster heart rate","Consuming leo caues dehydration",
-                                "Some say that caffein causes restlessness and shakiness when consumed in large quantities","Caffein may cause in some cases of anxiety",
-                                "Caffein also causes Dependency, so you need to take more of it to get the same effects",
-                                "Caffein also causes your intestines to work faster"};
+        faktoja = new String[] {"Caffeine may result in headaches.", "Dependency, so you need to take more of it to get the same results.",
+                                "Did you know that caffeine causes faster heart rate","Consuming leo causes dehydration",
+                                "Some say that caffeine causes restlessness and shakiness when consumed in large quantities","Caffeine may cause in some cases of anxiety",
+                                "Caffeine also causes Dependency, so you need to take more of it to get the same effects",
+                                "Caffeine also causes your intestines to work faster"};
 
     }
 
