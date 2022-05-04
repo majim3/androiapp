@@ -147,8 +147,10 @@ public class kofeiininLisays extends AppCompatActivity {
         });
     }
 
+
     /**
      * Tehdään metodi lisaaSyotettytuote joka lisää lisättyjen listaan kofeiininkäyttökerran, joka saa arvoikseen edittexteistä hinnan ja kofeiinimäärän
+     * @param view view on klikattu näkymö
      */
     public void lisaaSyotettyTuote(View view){
         SharedPreferences sharedPreferences2 = getSharedPreferences("shared preferences", MODE_PRIVATE);
@@ -219,6 +221,7 @@ public class kofeiininLisays extends AppCompatActivity {
 
     /**
      * Aikalailla sama metodi, kuin äsken, mutta nyt lisätty saa arvooikseen tallennetun tuotteen arvot
+     * @param view view on painettu näkymä
      */
     public void lisaaValittuTuote(View view){
             SharedPreferences sharedPreferences2 = getSharedPreferences("shared preferences", MODE_PRIVATE);
@@ -258,6 +261,7 @@ public class kofeiininLisays extends AppCompatActivity {
 
     /**
      * Metodi joka vie tuotteentallennus aktiviteettiin
+     * @param view view on näkymä jota klikattiin
      */
     public void siirryTallentamaan(View view){
         Intent intent = new Intent(this, TuotteenTallennus.class);

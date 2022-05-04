@@ -22,7 +22,6 @@ import java.util.Locale;
 public class TuotteenTallennus extends AppCompatActivity {
     /**
      * Tehdään lista tallennetuille tuotteille
-
      */
     ArrayList<TallennettuTuote> tallennetut;
     @Override
@@ -35,6 +34,7 @@ public class TuotteenTallennus extends AppCompatActivity {
 
     /**
      * Metodi, joka lukee käyttäjän syötteet ja antaa syötteiden arvot kofeiininlisäys aktiiviteetille tallennetuttuotteen tallentamista varten
+     * @param view view on se view jota painettiin
      */
     public void palaaToiseenNakymaan(View view){
         Intent intent = new Intent(this, kofeiininLisays.class);

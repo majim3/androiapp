@@ -23,8 +23,12 @@ public class HistoriaAdapteri extends ArrayAdapter<LisattyTuote> {
     int resurource;
     ArrayList<LisattyTuote> lisatyt = null;
 
+
     /**
      * Tehdään konstruktori historia adapterille, jolle pitää syöttää context, resource ja lisattytuote lista
+     * @param context Contextin muuttuja
+     * @param resurource resuourcen muuttuja
+     * @param lisatyt lisatyt listan muuttuja
      */
     public HistoriaAdapteri(Context context, int resurource, ArrayList<LisattyTuote> lisatyt){
         super(context, resurource, lisatyt);
@@ -33,8 +37,13 @@ public class HistoriaAdapteri extends ArrayAdapter<LisattyTuote> {
         this.lisatyt = lisatyt;
     }
 
+
     /**
      * Määritellään mitä adapterin tekemissä näkymissä näkyy
+     * @param position syötetty position
+     * @param convertView syötetty näkymä
+     * @param parent syötetty Viewgroup
+     * @return
      * @author Perttu Harvala
      */
     @Override
