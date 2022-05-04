@@ -13,7 +13,7 @@ public class tiedot extends AppCompatActivity {
     /**
      * @Author Leo
      * alhaalla tuodaan tallennettuja tietoja ja laitetaan ne text view:viin
-     * @param savedInstanceState
+     * @param savedInstanceState state
      */
 
     @Override
