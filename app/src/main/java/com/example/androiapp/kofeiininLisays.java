@@ -26,9 +26,15 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class kofeiininLisays extends AppCompatActivity {
+    /**
+     * Tehdään muuttujat klikattutuote ja pitkaanklikattu, jotka kertoo mitä osaa listviewissä klikattiin tai pitkään klikattiin
+     */
     private int klikattuTuote;
     private int pitkaanKlikattu;
 
+    /**
+     * Tehdään listat tallennetuille tuotteille ja lisätyille tuotteille
+     */
     ArrayList<TallennettuTuote> tallennetut;
     ArrayList<LisattyTuote> lisatyt;
     @Override
@@ -36,6 +42,10 @@ public class kofeiininLisays extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kofeiinin_lisays);
 
+        /**
+         * Haetaan sharedpreferenceistä tallennettujen tuotteiden lista ja tehdään uusi lista jos sitä ei ole
+         * @author Perttu Harvala
+         */
         SharedPreferences sharedPreferences2 = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson2 = new Gson();
         String json2 = sharedPreferences2.getString("Tallennetut tuotteet", null);
@@ -46,6 +56,10 @@ public class kofeiininLisays extends AppCompatActivity {
         }
 
 
+        /**
+         * Katsotaan onko intentiä, ja jos on niin luodaan tuotteentallennuksesta tulleitten extrojen avulla uusi tallennettu tuote
+         * Tehdään myös ilmoitus, että kyseisen tuotteen tallennus onnistui
+         */
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if (extras != null){
@@ -68,11 +82,18 @@ public class kofeiininLisays extends AppCompatActivity {
                 toast.show();
             }
         }
+
+        /**
+         * Tehdään adapteri listviewille, joka käyttää simple list item 1 layoutia ja tallennetut listaa
+         */
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, tallennetut);
         ListView lv = (ListView)findViewById(R.id.tallennetutTuotteetLista);
-
         lv.setAdapter(arrayAdapter);
 
+        /**
+         * Tehdään klikkauksen kuuntelijat listviewin osille ja niitä klikatessa kohtaa vastaavan tallennuksen nimi menee valituntuotteen tekstiksi
+         * ja klikattutuote saa arvokseen sen kohdan eli i
+         */
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -82,6 +103,12 @@ public class kofeiininLisays extends AppCompatActivity {
             }
         });
 
+
+        /**
+         * Tehdään pitkänklikkauksen kuuntelija, jossa annetaan pitkaanklikatulle arvoksi klikatun sijainti eli i
+         * sitten tehdään varoitusnäkymä jossa kysytään halutaanko kyseinen tallennettu tuote poistaa
+         * ja jos painaa kyllä niin se poistetaan
+         */
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -119,6 +146,10 @@ public class kofeiininLisays extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * Tehdään metodi lisaaSyotettytuote joka lisää lisättyjen listaan kofeiininkäyttökerran, joka saa arvoikseen edittexteistä hinnan ja kofeiinimäärän
+     */
     public void lisaaSyotettyTuote(View view){
         SharedPreferences sharedPreferences2 = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson2 = new Gson();
@@ -130,6 +161,9 @@ public class kofeiininLisays extends AppCompatActivity {
         }
         EditText syotettyKofeiini = findViewById(R.id.syotettyKofeiini);
         EditText syotettyHinta = findViewById(R.id.syotettyHinta);
+        /**
+         * katsotaan onko editteksteissä tekstiä, ja onko ne luvut doubleja
+         */
         if(!syotettyKofeiini.getText().toString().equals("") && !syotettyHinta.getText().toString().equals("")) {
             Boolean onkoDouble = true;
             try {
@@ -139,6 +173,9 @@ public class kofeiininLisays extends AppCompatActivity {
                 onkoDouble = false;
             }
             if(onkoDouble){
+                /**
+                 * Jos syöte on kelvollinen, niin vielä ennen sharedpreferencen lisätyt listaan tallentamista määritellään lisätylle sen lisäysaika
+                 */
                 Calendar calendar = Calendar.getInstance();
                 SimpleDateFormat aika = new SimpleDateFormat("hh:mm");
                 SimpleDateFormat pvm = new SimpleDateFormat("dd-MMM-yyyy");
@@ -151,6 +188,11 @@ public class kofeiininLisays extends AppCompatActivity {
                 String json = gson.toJson(lisatyt);
                 editor.putString("Lisatyt tuotteet", json);
                 editor.apply();
+
+                /**
+                 * Sitten viedään käyttäjä takaisin mainactivityyn ja annetaan intent, joka kertoo että lisäys onnistui
+                 * jonka avulla mainactivityssä tulee ilmoitus onnistuneesta lisäyksestä
+                 */
                 Intent intent = new Intent(this, MainActivity.class);
                 intent.putExtra("LisaysOnnistui", true);
                 startActivity(intent);
@@ -174,6 +216,10 @@ public class kofeiininLisays extends AppCompatActivity {
             toast.show();
         }
     }
+
+    /**
+     * Aikalailla sama metodi, kuin äsken, mutta nyt lisätty saa arvooikseen tallennetun tuotteen arvot
+     */
     public void lisaaValittuTuote(View view){
             SharedPreferences sharedPreferences2 = getSharedPreferences("shared preferences", MODE_PRIVATE);
             Gson gson2 = new Gson();
@@ -209,6 +255,10 @@ public class kofeiininLisays extends AppCompatActivity {
             }
 
     }
+
+    /**
+     * Metodi joka vie tuotteentallennus aktiviteettiin
+     */
     public void siirryTallentamaan(View view){
         Intent intent = new Intent(this, TuotteenTallennus.class);
         startActivity(intent);

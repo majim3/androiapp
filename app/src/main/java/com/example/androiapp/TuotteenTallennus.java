@@ -20,6 +20,10 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class TuotteenTallennus extends AppCompatActivity {
+    /**
+     * Tehdään lista tallennetuille tuotteille
+
+     */
     ArrayList<TallennettuTuote> tallennetut;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +33,18 @@ public class TuotteenTallennus extends AppCompatActivity {
 
     }
 
+    /**
+     * Metodi, joka lukee käyttäjän syötteet ja antaa syötteiden arvot kofeiininlisäys aktiiviteetille tallennetuttuotteen tallentamista varten
+     */
     public void palaaToiseenNakymaan(View view){
         Intent intent = new Intent(this, kofeiininLisays.class);
         EditText nimi = findViewById(R.id.tuotteenNimi);
         EditText kofeiini = findViewById(R.id.tuotteenKofeiini);
         EditText hinta = findViewById(R.id.tuotteenHinta);
+        /**
+         * Tarkistetaan onko syötteet tyhjiä, ovatko numerot doubleja ja onko nimi käytetty jo
+         * @author Perttu Harvala
+         */
         if(!nimi.getText().toString().equals("") && !kofeiini.getText().toString().equals("") && !hinta.getText().toString().equals("")){
             Boolean onkoDouble = true;
             try {

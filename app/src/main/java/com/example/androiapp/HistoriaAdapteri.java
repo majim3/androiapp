@@ -16,10 +16,16 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class HistoriaAdapteri extends ArrayAdapter<LisattyTuote> {
+    /**
+     * Tehdään muuttujat kontekstille ja resurssille, ja tehdään lista lisätyt tuotteet joka on aluksi null
+     */
     Context context;
     int resurource;
     ArrayList<LisattyTuote> lisatyt = null;
 
+    /**
+     * Tehdään konstruktori historia adapterille, jolle pitää syöttää context, resource ja lisattytuote lista
+     */
     public HistoriaAdapteri(Context context, int resurource, ArrayList<LisattyTuote> lisatyt){
         super(context, resurource, lisatyt);
         this.context = context;
@@ -27,8 +33,15 @@ public class HistoriaAdapteri extends ArrayAdapter<LisattyTuote> {
         this.lisatyt = lisatyt;
     }
 
+    /**
+     * Määritellään mitä adapterin tekemissä näkymissä näkyy
+     * @author Perttu Harvala
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
+        /**
+         * Tehdään lisattytuote, jonka avulla haetaan arvot näkymien tekstinäkymille
+         */
         LisattyTuote lisatty = lisatyt.get(position);
         if (convertView == null){
             convertView = LayoutInflater.from(context).inflate(R.layout.historia_view, parent, false);
