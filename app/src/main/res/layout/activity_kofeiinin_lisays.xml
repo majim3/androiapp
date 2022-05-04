@@ -6,4 +6,134 @@
     android:layout_height="match_parent"
     tools:context=".kofeiininLisays">
 
+    <TextView
+        android:id="@+id/syotaTiedotTeksti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Syötä tuotteen kofeiinimäärä ja hinta"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/syotettyHinta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:digits="0123456789."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/syotettyKofeiini" />
+
+    <EditText
+        android:id="@+id/syotettyKofeiini"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:digits="0123456789."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/syotaTiedotTeksti" />
+
+    <TextView
+        android:id="@+id/mgTeksti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="32dp"
+        android:text="mg"
+        app:layout_constraintStart_toEndOf="@+id/syotettyKofeiini"
+        app:layout_constraintTop_toBottomOf="@+id/syotaTiedotTeksti" />
+
+    <TextView
+        android:id="@+id/euroaTeksti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="32dp"
+        android:text="euroa"
+        app:layout_constraintStart_toEndOf="@+id/syotettyHinta"
+        app:layout_constraintTop_toBottomOf="@+id/syotettyKofeiini" />
+
+    <Button
+        android:id="@+id/lisaaNappi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="lisaaSyotettyTuote"
+        android:text="Lisää"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/syotettyHinta" />
+
+    <TextView
+        android:id="@+id/tallennetutTuotteetTeksti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Valitse tallennettu tuote"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lisaaNappi" />
+
+    <ListView
+        android:id="@+id/tallennetutTuotteetLista"
+        android:layout_width="379dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tallennetutTuotteetTeksti" />
+
+    <TextView
+        android:id="@+id/valittuTuoteTeksti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:text="Valittu tuote:"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tallennetutTuotteetLista" />
+
+    <TextView
+        android:id="@+id/valitunTuotteenTeksti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/valittuTuoteTeksti"
+        app:layout_constraintTop_toBottomOf="@+id/tallennetutTuotteetLista" />
+
+    <Button
+        android:id="@+id/lisaaNappi2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:onClick="lisaaValittuTuote"
+        android:text="Lisää"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/valittuTuoteTeksti" />
+
+    <Button
+        android:id="@+id/uusiTallennusNappi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:onClick="siirryTallentamaan"
+        android:text="Tallenna uusi tuote"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lisaaNappi2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

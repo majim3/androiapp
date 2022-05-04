@@ -10,11 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Androiapp">
         <activity
+            android:name=".Historia"
+            android:exported="true" />
+        <activity
+            android:name=".TuotteenTallennus"
+            android:exported="false" />
+        <activity
             android:name=".Alku"
             android:exported="false" />
         <activity
             android:name=".kofeiininLisays"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".tiedot"
             android:exported="false" />
