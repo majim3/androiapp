@@ -15,8 +15,6 @@ public class DisplayMessageActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String message = "Hello " + intent.getStringExtra(Alku.EXTRA_MESSAGE) + "Your age is " + intent.getStringExtra(Alku.EXTRA_MESSAGE2);
 
-        TextView textView = findViewById(R.id.textView);
-        textView.setText(message);
     }
 
 }
