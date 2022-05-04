@@ -34,7 +34,8 @@ public class Alku extends AppCompatActivity {
     private EditText nimi;
     private EditText ika;
     private DatePickerDialog.OnDateSetListener paivamaara;
-    public LocalDate pvm;
+    public  LocalDate pvm;
+
 
 
 
@@ -43,7 +44,7 @@ public class Alku extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_alku);
         nimi = (EditText) findViewById(R.id.editTextTextPersonName);
         ika = (EditText) findViewById(R.id.editTextTextPersonName2);
         ika.setOnClickListener(new View.OnClickListener() {
@@ -102,14 +103,16 @@ public class Alku extends AppCompatActivity {
         startIntent();
     }
     public void startIntent() {
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
-
-        String viesti = nimi.getText().toString();
+        String name = nimi.getText().toString();
         String age = ika.getText().toString();
-
-        intent.putExtra(EXTRA_MESSAGE, viesti);
-        intent.putExtra(EXTRA_MESSAGE2, age);
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("User name: ", name);
+        editor.putString("User age: ", age);
+        editor.apply();
+        Intent intent = new Intent(Alku.this, MainActivity.class);
         startActivity(intent);
+
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean validateAge(LocalDate date) {

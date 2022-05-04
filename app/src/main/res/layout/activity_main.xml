@@ -40,9 +40,9 @@
     <Button
 
         android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_width="133dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="320dp"
         android:onClick="historiaPainike"
         android:text="Historia"
@@ -74,9 +74,9 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
+        android:layout_width="135dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:onClick="tietoNappi"
         android:text="Tiedot"

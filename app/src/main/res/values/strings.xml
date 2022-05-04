@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">androiapp</string>
-    <string name="age_send">Anna ikä</string>
+    <string name="age_send">Anna syntymäpäiväsi</string>
     <string name="send_name">Anna nimi</string>
 </resources>

@@ -3,6 +3,7 @@ package com.example.androiapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -22,6 +23,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences sharedPreferences3 = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        String userName = sharedPreferences3.getString("User name: ", null);
+        String userAge = sharedPreferences3.getString("User age: ", null);
+
+        if (userName == null  ||  userAge == null) {
+            Intent intent = new Intent(MainActivity.this, Alku.class);
+            startActivity(intent);
+        }
+
+
+
         TextView teksti = (TextView) findViewById(R.id.saldo);
         fakta = (TextView) findViewById(R.id.faktaText) ;
         faktoja = new String[] {"Caffeine may result in headaches.", "Dependency, so you need to take more of it to get the same results.",
