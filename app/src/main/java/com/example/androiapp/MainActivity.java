@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Tässä on sovelluksen etusivu minne päästään kun ollaan syötetty tiedot jotka kelpaavat.
      * @author Kaarle Häyhä
-     * @param savedInstanceState
+     * @param savedInstanceState savedInstanceState
      */
 
 
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Nappi minkä avulla voidaan satunnaistaa faktojen ilmestyminen
-     * @param v
+     * @param v on mitä klikataan
      */
 
     public void faktaNappi(View v){
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Nappi josta pääsee lisäys aktiviteettiin.
-     * @param v
+     * @param v on mitä klikataan
      */
 
    public void lisays(View v){
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Nappi josta pääsee Historia aktiviteetiin.
-     * @param view
+     * @param view on mitä klikataan
      */
    public void historiaPainike(View view){
         historiaSivu = new Intent(MainActivity.this, Historia.class);
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Nappi josta pääsee Tiedot aktiviteettiin.
-     * @param v
+     * @param v on mitä klikataan
      */
 
    public void tietoNappi(View v){

@@ -39,7 +39,7 @@ public class Alku extends AppCompatActivity {
     /**
      * Tässä on tapahtuma missä käyttäjä syöttää tietonsa ja sovellus ottaa ne talteen.
      * @author Kaarle Häyhä
-     * @param savedInstanceState
+     * @param savedInstanceState savedInstanceState
      */
 
 
@@ -61,7 +61,7 @@ public class Alku extends AppCompatActivity {
         ika.setOnClickListener(new View.OnClickListener() {
             /**
              * onClick tapahtuma missä avautuu kalenteri
-             * @param view
+             * @param view missä asetetaan näytölle data
              */
             @Override
             public void onClick(View view) {
@@ -104,7 +104,7 @@ public class Alku extends AppCompatActivity {
 
     /**
      * Tässä tehdään onClick tapahtuma "valmis" napille minkä jälkeen sovellus ottaa tiedot talteen ja vie käyttäjän toiseen aktiviteettiin.
-     * @param view
+     * @param view on mitä klikataan
      */
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -158,7 +158,7 @@ public class Alku extends AppCompatActivity {
     /**
      * Metodi jolla voidaan tarkistaa käyttäjän ikä vuosien erolla kalenteripäivämäärästä.
      * Huom! Metodissa käytetään myös "minusMonths(1)" koska Androidstudio aloittaa kuukaudet 0 jonka takia Tammikuu = 0 ja Helmikuu = 1 jne.
-     * @param date
+     * @param date mikä on päivämäärä
      * @return Lähetetään takaisin päivämäärä
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
