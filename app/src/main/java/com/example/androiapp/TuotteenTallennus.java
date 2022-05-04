@@ -88,7 +88,7 @@ public class TuotteenTallennus extends AppCompatActivity {
             }
             else {
                 TextView varoitus = findViewById(R.id.varoitusTeksti);
-                varoitus.setText("Luvuissa saa olla vain 1 piste!");
+                varoitus.setText("Luvuissa saa olla vain 1 piste/pilkku!");
             }
 
 
