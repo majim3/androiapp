@@ -179,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
         String ladattuSaldo = sharedPreferences4.getString("Saldo", "0");
 
         TextView saldoView = findViewById(R.id.saldo);
+        ladattuSaldo = ladattuSaldo.replace(".", ",");
         String saldoTeksti = "Saldo: " + ladattuSaldo + " €";
         saldoView.setText(saldoTeksti);
 

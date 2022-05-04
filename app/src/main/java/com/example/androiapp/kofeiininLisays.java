@@ -163,14 +163,23 @@ public class kofeiininLisays extends AppCompatActivity {
         }
         EditText syotettyKofeiini = findViewById(R.id.syotettyKofeiini);
         EditText syotettyHinta = findViewById(R.id.syotettyHinta);
+        String syotettyHintaString = syotettyHinta.getText().toString();
+        String syotettyKofeiiniString = syotettyKofeiini.getText().toString();
         /**
          * katsotaan onko editteksteissä tekstiä, ja onko ne luvut doubleja
          */
         if(!syotettyKofeiini.getText().toString().equals("") && !syotettyHinta.getText().toString().equals("")) {
             Boolean onkoDouble = true;
+
+            if(syotettyHintaString.indexOf(",") != -1){
+                syotettyHintaString = syotettyHintaString.replace(",", ".");
+            }
+            if(syotettyKofeiiniString.indexOf(",") != -1){
+                syotettyKofeiiniString = syotettyKofeiiniString.replace(",", ".");
+            }
             try {
-                Double num = Double.parseDouble(syotettyHinta.getText().toString());
-                Double num2 = Double.parseDouble(syotettyKofeiini.getText().toString());
+                Double num = Double.parseDouble(syotettyHintaString);
+                Double num2 = Double.parseDouble(syotettyKofeiiniString);
             } catch (NumberFormatException e) {
                 onkoDouble = false;
             }
@@ -183,7 +192,7 @@ public class kofeiininLisays extends AppCompatActivity {
                 SimpleDateFormat pvm = new SimpleDateFormat("dd-MMM-yyyy");
                 String lisaamisAika = aika.format(calendar.getTime());
                 String lisaamisPvm = pvm.format(calendar.getTime());
-                lisatyt.add(new LisattyTuote(Double.parseDouble(syotettyKofeiini.getText().toString()), Double.parseDouble(syotettyHinta.getText().toString()), lisaamisPvm, lisaamisAika));
+                lisatyt.add(new LisattyTuote(Double.parseDouble(syotettyKofeiiniString), Double.parseDouble(syotettyHintaString), lisaamisPvm, lisaamisAika));
                 SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 Gson gson = new Gson();
@@ -201,7 +210,7 @@ public class kofeiininLisays extends AppCompatActivity {
             }
             else {
                 Context context = getApplicationContext();
-                CharSequence text = "Pisteitä ei saa olla kuin 1!";
+                CharSequence text = "Pisteitä/Pilkkuja ei saa olla kuin 1!";
                 int duration = Toast.LENGTH_SHORT;
 
                 Toast toast = Toast.makeText(context, text, duration);

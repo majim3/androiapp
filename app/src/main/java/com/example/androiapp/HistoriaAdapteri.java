@@ -58,8 +58,10 @@ public class HistoriaAdapteri extends ArrayAdapter<LisattyTuote> {
         String paikkaTeksti = String.valueOf(position + 1);
         TextView lisatynTeksti = (TextView)convertView.findViewById(R.id.lisaysTeksti);
         TextView pvmTeksti = (TextView)convertView.findViewById(R.id.pvmTeksti);
-        String kofeiiniTeksti = String.valueOf(lisatty.getKofeiini());
-        String hintaTeksti = String.valueOf(lisatty.getHinta());
+        String kofeiiniTeksti = String.format("%.2f", lisatty.getKofeiini());
+        String hintaTeksti = String.format("%.2f", lisatty.getHinta());
+        kofeiiniTeksti = kofeiiniTeksti.replace(".", ",");
+        hintaTeksti = hintaTeksti.replace(".", ",");
         lisatynTeksti.setText("Lisäys " + paikkaTeksti + ", Kofeiini: " + kofeiiniTeksti + " mg," + " Hinta: " + hintaTeksti + " €");
         pvmTeksti.setText("Lisätty klo: " + lisatty.getKlo() + " | " + lisatty.getPvm());
 

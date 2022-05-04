@@ -42,15 +42,24 @@ public class TuotteenTallennus extends AppCompatActivity {
         EditText nimi = findViewById(R.id.tuotteenNimi);
         EditText kofeiini = findViewById(R.id.tuotteenKofeiini);
         EditText hinta = findViewById(R.id.tuotteenHinta);
+        String syotettyKofeiiniString = kofeiini.getText().toString();
+        String syotettyHintaString = hinta.getText().toString();
         /**
          * Tarkistetaan onko syötteet tyhjiä, ovatko numerot doubleja ja onko nimi käytetty jo
          * @author Perttu Harvala
          */
         if(!nimi.getText().toString().equals("") && !kofeiini.getText().toString().equals("") && !hinta.getText().toString().equals("")){
             Boolean onkoDouble = true;
+
+            if(syotettyHintaString.indexOf(",") != -1){
+                syotettyHintaString = syotettyHintaString.replace(",", ".");
+            }
+            if(syotettyKofeiiniString.indexOf(",") != -1){
+                syotettyKofeiiniString = syotettyKofeiiniString.replace(",", ".");
+            }
             try {
-                Double num = Double.parseDouble(kofeiini.getText().toString());
-                Double num2 = Double.parseDouble(hinta.getText().toString());
+                Double num = Double.parseDouble(syotettyKofeiiniString);
+                Double num2 = Double.parseDouble(syotettyHintaString);
             } catch (NumberFormatException e) {
                 onkoDouble = false;
             }
@@ -63,12 +72,12 @@ public class TuotteenTallennus extends AppCompatActivity {
                 if(tallennetut == null){
                     tallennetut = new ArrayList<>();
                 }
-                TallennettuTuote testiTuote = new TallennettuTuote(nimi.getText().toString(), Double.parseDouble(kofeiini.getText().toString()),Double.parseDouble(hinta.getText().toString()));
+                TallennettuTuote testiTuote = new TallennettuTuote(nimi.getText().toString(), Double.parseDouble(syotettyKofeiiniString),Double.parseDouble(syotettyHintaString));
                 if(!tallennetut.contains(testiTuote)){
                     Bundle extras = new Bundle();
                     extras.putString("EXTRA_NIMI", nimi.getText().toString());
-                    extras.putDouble("EXTRA_KOFEIINI", Double.parseDouble(kofeiini.getText().toString()));
-                    extras.putDouble("EXTRA_HINTA", Double.parseDouble(hinta.getText().toString()));
+                    extras.putDouble("EXTRA_KOFEIINI", Double.parseDouble(syotettyKofeiiniString));
+                    extras.putDouble("EXTRA_HINTA", Double.parseDouble(syotettyHintaString));
                     intent.putExtras(extras);
                     startActivity(intent);
                 }
