@@ -7,8 +7,12 @@ public class LisattyTuote {
     private String klo;
 
     /**
-     * @Author Leo
-     *Tässä on konstruktori lisättyihintuotteille muuttujille
+     * @author Leo
+     * Tässä on konstruktori lisättyihintuotteille muuttujille
+     * @param kofeiini palauttaa kofeiinia
+     * @param hinta palauttaa hinnan
+     * @param pvm palauttaa pvm
+     * @param klo palauttaa kellon ajan
      */
 
     public LisattyTuote(double kofeiini, double hinta, String pvm, String klo){
@@ -19,11 +23,10 @@ public class LisattyTuote {
     }
 
     /**
+     * @author Leo
      *
-     * @Author Leo
-     *Alhalla palautat muuttujille arvon
-     *
-    */
+     * @return Alhalla palautat muuttujille arvon
+     */
     @Override
     public String toString(){
 

@@ -31,7 +31,7 @@ public class TallennettuTuote {
     }
 
     /**
-     * @Author Leo
+     * @author Leo
      * palauttaa arvot muuttujille
      * @return
      */
