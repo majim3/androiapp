@@ -11,7 +11,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView fakta;
     private int rand;
     private String[] faktoja;
-    private Intent intent;
+    private Intent lisaysSivu;
+    private Intent tietoSivu;
 
 
 
@@ -36,8 +37,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
    public void lisays(View v){
-        intent = new Intent(MainActivity.this, kofeiininLisays.class);
-        startActivity(intent);
+        lisaysSivu = new Intent(MainActivity.this, kofeiininLisays.class);
+        startActivity(lisaysSivu);
+   }
+
+   public void tietoNappi(View v){
+        tietoSivu = new Intent(MainActivity.this, tiedot.class);
+        startActivity(tietoSivu);
    }
 
 
