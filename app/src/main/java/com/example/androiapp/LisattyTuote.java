@@ -7,6 +7,7 @@ public class LisattyTuote {
     private String klo;
 
     /**
+     * @Author Leo
      *Tässä on konstruktori lisättyihintuotteille muuttujille
      */
 
@@ -19,6 +20,7 @@ public class LisattyTuote {
 
     /**
      *
+     * @Author Leo
      *Alhalla palautat muuttujille arvon
      *
     */

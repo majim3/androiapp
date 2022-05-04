@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 public class tiedot extends AppCompatActivity {
     /**
+     * @Author Leo
      * alhaalla tuodaan tallennettuja tietoja ja laitetaan ne text view:viin
      * @param savedInstanceState
      */
@@ -36,6 +37,7 @@ public class tiedot extends AppCompatActivity {
     }
 
     /**
+     * @Author Leo
      * Alhaalla on nappi jolla poistetaan henkilön tiedot halutessa
      * ja heitetään takas alkuun jossa luodaan käyttäjä
      * @param view
