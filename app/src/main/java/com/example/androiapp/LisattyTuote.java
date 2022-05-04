@@ -6,12 +6,22 @@ public class LisattyTuote {
     private String pvm;
     private String klo;
 
+    /**
+     *Tässä on konstruktori lisättyihintuotteille muuttujille
+     */
+
     public LisattyTuote(double kofeiini, double hinta, String pvm, String klo){
         this.kofeiini = kofeiini;
         this.hinta = hinta;
         this.pvm = pvm;
         this.klo = klo;
     }
+
+    /**
+     *
+     *Alhalla palautat muuttujille arvon
+     *
+    */
     @Override
     public String toString(){
 

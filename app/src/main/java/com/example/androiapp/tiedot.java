@@ -10,6 +10,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class tiedot extends AppCompatActivity {
+    /**
+     * alhaalla tuodaan tallennettuja tietoja ja laitetaan ne text view:viin
+     * @param savedInstanceState
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +33,15 @@ public class tiedot extends AppCompatActivity {
 
         Button btn = (Button) findViewById(R.id.button5);
 
-
-
-
-
     }
+
+    /**
+     * Alhaalla on nappi jolla poistetaan henkilön tiedot halutessa
+     * ja heitetään takas alkuun jossa luodaan käyttäjä
+     * @param view
+     */
+
+
     public void clicked(View view) {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

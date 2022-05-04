@@ -8,6 +8,13 @@ public class TallennettuTuote {
     private double kofeiini;
     private double hinta;
 
+    /**
+     *Alhaalla konstruktori Tallennettu tuotteille muuttujille
+     * @param nimi palauttaa nimen
+     * @param kofeiini palauttaaa kofeiini määrän
+     * @param hinta palauttaa hinnan
+     */
+
     public TallennettuTuote(String nimi, double kofeiini, double hinta){
         this.nimi = nimi;
         this.kofeiini = kofeiini;
@@ -21,6 +28,11 @@ public class TallennettuTuote {
         TallennettuTuote that = (TallennettuTuote) o;
         return nimi.equals(that.nimi);
     }
+
+    /**
+     * palauttaa arvot muuttujille
+     * @return
+     */
 
     @Override
     public int hashCode() {
