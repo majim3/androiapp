@@ -166,4 +166,21 @@ public class Alku extends AppCompatActivity {
         LocalDate currentDate = LocalDate.now();
         return date.isBefore(currentDate.minusYears(15).minusMonths(1));
     }
+    protected void onStart() {
+        super.onStart();
+        /**
+         * Alempana luodaan ehto, missä katsotaan onko käyttäjä syöttänyt tietoja sovellukselle vai ovatko ne tyhjinä.
+         * Jos tietoja ei löydy tai ole, sovellus heittää käyttäjän takaisin kohtaan missä syötetään tiedot.
+         */
+
+
+        SharedPreferences sharedPreferencesUser = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        String userName = sharedPreferencesUser.getString("User name: ", null);
+        String userAge = sharedPreferencesUser.getString("User age: ", null);
+
+        if (userName != null || userAge != null) {
+            Intent intent = new Intent(Alku.this, MainActivity.class);
+            startActivity(intent);
+        }
+    }
 }
