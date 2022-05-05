@@ -58,20 +58,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        /**
-         * Alempana luodaan ehto, missä katsotaan onko käyttäjä syöttänyt tietoja sovellukselle vai ovatko ne tyhjinä.
-         * Jos tietoja ei löydy tai ole, sovellus heittää käyttäjän takaisin kohtaan missä syötetään tiedot.
-         */
 
-
-        SharedPreferences sharedPreferences3 = getSharedPreferences("shared preferences", MODE_PRIVATE);
-        String userName = sharedPreferences3.getString("User name: ", null);
-        String userAge = sharedPreferences3.getString("User age: ", null);
-
-        if (userName == null  ||  userAge == null) {
-            Intent intent = new Intent(MainActivity.this, Alku.class);
-            startActivity(intent);
-        }
 
 
         /**
@@ -137,6 +124,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        /**
+         * Alempana luodaan ehto, missä katsotaan onko käyttäjä syöttänyt tietoja sovellukselle vai ovatko ne tyhjinä.
+         * Jos tietoja ei löydy tai ole, sovellus heittää käyttäjän takaisin kohtaan missä syötetään tiedot.
+         */
+
+
+        SharedPreferences sharedPreferencesUser = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        String userName = sharedPreferencesUser.getString("User name: ", null);
+        String userAge = sharedPreferencesUser.getString("User age: ", null);
+
+        if (userName == null  ||  userAge == null) {
+            Intent intent = new Intent(MainActivity.this, Alku.class);
+            startActivity(intent);
+        }
 
         /**
          * Tapahtuma missä luodaan lista tuotteille.
