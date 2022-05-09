@@ -25,7 +25,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Tasss on tapahtuma missa kayttaja syottaa tietonsa ja sovellus ottaa ne talteen.
+ * Tassa on tapahtuma missa kayttaja syottaa tietonsa ja sovellus ottaa ne talteen.
  * @author Kaarle Häyhä
  */
 
