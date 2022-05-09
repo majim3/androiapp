@@ -45,7 +45,7 @@ public class Historia extends AppCompatActivity {
         ListView listView = (ListView)findViewById(R.id.historiaListaView);
 
         /*
-         * Haetaan sharedpreferenceistä lista lisatyt tuotteet ja tehdaan uusi lista jos sita ei ole
+         * Haetaan sharedpreferenceista lista lisatyt tuotteet ja tehdaan uusi lista jos sita ei ole
          */
         SharedPreferences sharedPreferences2 = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson2 = new Gson();
@@ -67,18 +67,18 @@ public class Historia extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             /*
-             * Tehdään klikkauksen kuuntelijat listviewin sisällöille
+             * Tehdään klikkauksen kuuntelijat listviewin sisalloille
              */
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 /*
-                 * Annetaan klikatulle arvoksi klikatun näkymän sijainti i
-                 * ja tehdään klikattutekstille arvoksi i + 1
+                 * Annetaan klikatulle arvoksi klikatun nakyman sijainti i
+                 * ja tehdaan klikattutekstille arvoksi i + 1
                  */
                 klikattu = i;
                 int klikattuTeksti = i + 1;
 
                 /*
-                 * Tehdään varmistus ikkuna kun ollaan klikattu jotain näkymää, jossa sitten kysytään halutaanko kyseisen näkymän kofeiinilisäys poistaa
+                 * Tehdaan varmistus ikkuna kun ollaan klikattu jotain näkymää, jossa sitten kysytään halutaanko kyseisen näkymän kofeiinilisäys poistaa
                  */
                 AlertDialog.Builder altdial = new AlertDialog.Builder(Historia.this);
                 altdial.setMessage("Poistetaanko Lisäys " + klikattuTeksti + "?").setCancelable(false)
