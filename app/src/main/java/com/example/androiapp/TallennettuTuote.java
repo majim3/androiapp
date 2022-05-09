@@ -9,7 +9,7 @@ public class TallennettuTuote {
     private double hinta;
 
     /**
-     * @Author Leo
+     * @author Leo
      *Alhaalla konstruktori Tallennettu tuotteille muuttujille
      * @param nimi palauttaa nimen
      * @param kofeiini palauttaaa kofeiini maaran
