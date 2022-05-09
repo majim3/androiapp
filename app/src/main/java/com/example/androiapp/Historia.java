@@ -45,7 +45,7 @@ public class Historia extends AppCompatActivity {
         ListView listView = (ListView)findViewById(R.id.historiaListaView);
 
         /*
-         * Haetaan sharedpreferenceistä lista lisätyt tuotteet ja tehdään uusi lista jos sitä ei ole
+         * Haetaan sharedpreferenceistä lista lisatyt tuotteet ja tehdaan uusi lista jos sita ei ole
          */
         SharedPreferences sharedPreferences2 = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson2 = new Gson();
