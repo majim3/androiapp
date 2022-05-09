@@ -24,7 +24,7 @@ public class HistoriaAdapteri extends ArrayAdapter<LisattyTuote> {
 
     /**
      * Tehdaan muuttujat kontekstille ja resurssille, ja tehdaan lista lisatyt tuotteet joka on aluksi null
-     * Tehdaan konstruktori historia adapterille, jolle pitää syottaa context, resource ja lisattytuote lista
+     * Tehdaan konstruktori historia adapterille, jolle pitaa syottaa context, resource ja lisattytuote lista
      * @param context Contextin muuttuja
      * @param resurource resuourcen muuttuja
      * @param lisatyt lisatyt listan muuttuja
@@ -40,9 +40,9 @@ public class HistoriaAdapteri extends ArrayAdapter<LisattyTuote> {
 
     /**
      * Maaritellaan mita adapterin tekemissa nakymissa nakyy
-     * @param position syötetty position
-     * @param convertView syötetty näkymä
-     * @param parent syötetty Viewgroup
+     * @param position syotetty position
+     * @param convertView syotetty näkyma
+     * @param parent syotetty Viewgroup
      * @return palauttaa lopullisen nakyman
      *
      */
