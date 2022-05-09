@@ -20,11 +20,12 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 
-
-
 public class TuotteenTallennus extends AppCompatActivity {
-    
     ArrayList<TallennettuTuote> tallennetut;
+    /**
+     * Tehdaan lista tallennetuille tuotteille
+     * @author Perttu Harvala
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,7 @@ public class TuotteenTallennus extends AppCompatActivity {
     }
 
     /**
-     * Metodi, joka lukee käyttäjän syötteet ja antaa syötteiden arvot kofeiininlisäys aktiiviteetille tallennetuttuotteen tallentamista varten
+     * Metodi, joka lukee kayttajan syotteet ja antaa syotteiden arvot kofeiininlisäys aktiiviteetille tallennetuttuotteen tallentamista varten
      * @param view view on se view jota painettiin
      */
     public void palaaToiseenNakymaan(View view){
@@ -44,9 +45,9 @@ public class TuotteenTallennus extends AppCompatActivity {
         EditText hinta = findViewById(R.id.tuotteenHinta);
         String syotettyKofeiiniString = kofeiini.getText().toString();
         String syotettyHintaString = hinta.getText().toString();
-        /**
+        /*
          * Tarkistetaan onko syötteet tyhjiä, ovatko numerot doubleja ja onko nimi käytetty jo
-         * @author Perttu Harvala
+         *
          */
         if(!nimi.getText().toString().equals("") && !kofeiini.getText().toString().equals("") && !hinta.getText().toString().equals("")){
             Boolean onkoDouble = true;

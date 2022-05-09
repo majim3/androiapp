@@ -26,25 +26,26 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class kofeiininLisays extends AppCompatActivity {
-    /**
-     * Tehdään muuttujat klikattutuote ja pitkaanklikattu, jotka kertoo mitä osaa listviewissä klikattiin tai pitkään klikattiin
-     */
+
     private int klikattuTuote;
     private int pitkaanKlikattu;
-
-    /**
-     * Tehdään listat tallennetuille tuotteille ja lisätyille tuotteille
-     */
     ArrayList<TallennettuTuote> tallennetut;
     ArrayList<LisattyTuote> lisatyt;
+
+    /**
+     * Tehdaan listat tallennetuille tuotteille ja lisatyille tuotteille
+     * Tehdaan muuttujat klikattutuote ja pitkaanklikattu, jotka kertoo mita osaa listviewissa klikattiin tai pitkaan klikattiin
+     * @author Perttu Harvala
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kofeiinin_lisays);
 
-        /**
+        /*
          * Haetaan sharedpreferenceistä tallennettujen tuotteiden lista ja tehdään uusi lista jos sitä ei ole
-         * @author Perttu Harvala
+         *
          */
         SharedPreferences sharedPreferences2 = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson2 = new Gson();
@@ -56,7 +57,7 @@ public class kofeiininLisays extends AppCompatActivity {
         }
 
 
-        /**
+        /*
          * Katsotaan onko intentiä, ja jos on niin luodaan tuotteentallennuksesta tulleitten extrojen avulla uusi tallennettu tuote
          * Tehdään myös ilmoitus, että kyseisen tuotteen tallennus onnistui
          */
@@ -83,14 +84,14 @@ public class kofeiininLisays extends AppCompatActivity {
             }
         }
 
-        /**
+        /*
          * Tehdään adapteri listviewille, joka käyttää simple list item 1 layoutia ja tallennetut listaa
          */
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, tallennetut);
         ListView lv = (ListView)findViewById(R.id.tallennetutTuotteetLista);
         lv.setAdapter(arrayAdapter);
 
-        /**
+        /*
          * Tehdään klikkauksen kuuntelijat listviewin osille ja niitä klikatessa kohtaa vastaavan tallennuksen nimi menee valituntuotteen tekstiksi
          * ja klikattutuote saa arvokseen sen kohdan eli i
          */
@@ -104,7 +105,7 @@ public class kofeiininLisays extends AppCompatActivity {
         });
 
 
-        /**
+        /*
          * Tehdään pitkänklikkauksen kuuntelija, jossa annetaan pitkaanklikatulle arvoksi klikatun sijainti eli i
          * sitten tehdään varoitusnäkymä jossa kysytään halutaanko kyseinen tallennettu tuote poistaa
          * ja jos painaa kyllä niin se poistetaan
@@ -149,8 +150,8 @@ public class kofeiininLisays extends AppCompatActivity {
 
 
     /**
-     * Tehdään metodi lisaaSyotettytuote joka lisää lisättyjen listaan kofeiininkäyttökerran, joka saa arvoikseen edittexteistä hinnan ja kofeiinimäärän
-     * @param view view on klikattu näkymö
+     * Tehdaan metodi lisaaSyotettytuote joka lisaa lisattyjen listaan kofeiininkayttokerran, joka saa arvoikseen edittexteista hinnan ja kofeiinimaaran
+     * @param view view on klikattu nakyma
      */
     public void lisaaSyotettyTuote(View view){
         SharedPreferences sharedPreferences2 = getSharedPreferences("shared preferences", MODE_PRIVATE);
@@ -165,8 +166,8 @@ public class kofeiininLisays extends AppCompatActivity {
         EditText syotettyHinta = findViewById(R.id.syotettyHinta);
         String syotettyHintaString = syotettyHinta.getText().toString();
         String syotettyKofeiiniString = syotettyKofeiini.getText().toString();
-        /**
-         * katsotaan onko editteksteissä tekstiä, ja onko ne luvut doubleja
+        /*
+         * katsotaan onko editteksteissa tekstiä, ja onko ne luvut doubleja
          */
         if(!syotettyKofeiini.getText().toString().equals("") && !syotettyHinta.getText().toString().equals("")) {
             Boolean onkoDouble = true;
@@ -184,7 +185,7 @@ public class kofeiininLisays extends AppCompatActivity {
                 onkoDouble = false;
             }
             if(onkoDouble){
-                /**
+                /*
                  * Jos syöte on kelvollinen, niin vielä ennen sharedpreferencen lisätyt listaan tallentamista määritellään lisätylle sen lisäysaika
                  */
                 Calendar calendar = Calendar.getInstance();
@@ -200,7 +201,7 @@ public class kofeiininLisays extends AppCompatActivity {
                 editor.putString("Lisatyt tuotteet", json);
                 editor.apply();
 
-                /**
+                /*
                  * Sitten viedään käyttäjä takaisin mainactivityyn ja annetaan intent, joka kertoo että lisäys onnistui
                  * jonka avulla mainactivityssä tulee ilmoitus onnistuneesta lisäyksestä
                  */
@@ -228,49 +229,49 @@ public class kofeiininLisays extends AppCompatActivity {
         }
     }
 
-    /**
+    /*
      * Aikalailla sama metodi, kuin äsken, mutta nyt lisätty saa arvooikseen tallennetun tuotteen arvot
      * @param view view on painettu näkymä
      */
     public void lisaaValittuTuote(View view){
-            SharedPreferences sharedPreferences2 = getSharedPreferences("shared preferences", MODE_PRIVATE);
-            Gson gson2 = new Gson();
-            String json2 = sharedPreferences2.getString("Lisatyt tuotteet", null);
-            Type type = new TypeToken<ArrayList<LisattyTuote>>() {
-            }.getType();
-            lisatyt = gson2.fromJson(json2, type);
-            if (lisatyt == null) {
-                lisatyt = new ArrayList<>();
-            }
-            TextView valittuTuote = findViewById(R.id.valitunTuotteenTeksti);
+        SharedPreferences sharedPreferences2 = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        Gson gson2 = new Gson();
+        String json2 = sharedPreferences2.getString("Lisatyt tuotteet", null);
+        Type type = new TypeToken<ArrayList<LisattyTuote>>() {
+        }.getType();
+        lisatyt = gson2.fromJson(json2, type);
+        if (lisatyt == null) {
+            lisatyt = new ArrayList<>();
+        }
+        TextView valittuTuote = findViewById(R.id.valitunTuotteenTeksti);
 
-            if(klikattuTuote > -1 && tallennetut.size() > 0 && !valittuTuote.getText().equals("")) {
-                Double kofeiini = tallennetut.get(klikattuTuote).getKofeiini();
-                Double hinta = tallennetut.get(klikattuTuote).getHinta();
-                Calendar calendar = Calendar.getInstance();
-                SimpleDateFormat aika = new SimpleDateFormat("hh:mm");
-                SimpleDateFormat pvm = new SimpleDateFormat("dd-MMM-yyyy");
-                String lisaamisAika = aika.format(calendar.getTime());
-                String lisaamisPvm = pvm.format(calendar.getTime());
-                lisatyt.add(new LisattyTuote(kofeiini, hinta, lisaamisPvm, lisaamisAika));
-                SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                Gson gson = new Gson();
-                String json = gson.toJson(lisatyt);
-                editor.putString("Lisatyt tuotteet", json);
-                editor.apply();
-                Intent intent = new Intent(this, MainActivity.class);
-                Bundle extras = new Bundle();
-                extras.putString("EXTRA_LISAYS", "Lisätty");
-                intent.putExtras(extras);
-                startActivity(intent);
-            }
+        if(klikattuTuote > -1 && tallennetut.size() > 0 && !valittuTuote.getText().equals("")) {
+            Double kofeiini = tallennetut.get(klikattuTuote).getKofeiini();
+            Double hinta = tallennetut.get(klikattuTuote).getHinta();
+            Calendar calendar = Calendar.getInstance();
+            SimpleDateFormat aika = new SimpleDateFormat("hh:mm");
+            SimpleDateFormat pvm = new SimpleDateFormat("dd-MMM-yyyy");
+            String lisaamisAika = aika.format(calendar.getTime());
+            String lisaamisPvm = pvm.format(calendar.getTime());
+            lisatyt.add(new LisattyTuote(kofeiini, hinta, lisaamisPvm, lisaamisAika));
+            SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            Gson gson = new Gson();
+            String json = gson.toJson(lisatyt);
+            editor.putString("Lisatyt tuotteet", json);
+            editor.apply();
+            Intent intent = new Intent(this, MainActivity.class);
+            Bundle extras = new Bundle();
+            extras.putString("EXTRA_LISAYS", "Lisätty");
+            intent.putExtras(extras);
+            startActivity(intent);
+        }
 
     }
 
     /**
      * Metodi joka vie tuotteentallennus aktiviteettiin
-     * @param view view on näkymä jota klikattiin
+     * @param view view on nakyma jota klikattiin
      */
     public void siirryTallentamaan(View view){
         Intent intent = new Intent(this, TuotteenTallennus.class);

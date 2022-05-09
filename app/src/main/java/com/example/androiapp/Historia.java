@@ -21,30 +21,30 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Historia extends AppCompatActivity {
-
-
-    /**
-     *  Tehdään lista lisätyt, johon tulee lisätyt kofeiininkäytöt.
-     *  Sitten int klikattu, joka kertoo mitä kohtaa listviewistä klikattiin.
-     *  Lopuksi vielä tehdään omatekoinen adapteri, joka käyttää tekemääni layoutia.
-     */
-
-
     ArrayList<LisattyTuote> lisatyt;
     private int klikattu;
     HistoriaAdapteri adapteri;
+
+    /**
+     *  Tehdaan lista lisatyt, johon tulee lisätyt kofeiininkaytot.
+     *  Sitten int klikattu, joka kertoo mita kohtaa listviewista klikattiin.
+     *  Lopuksi viela tehdaan omatekoinen adapteri, joka kayttaa tekemaani layoutia.
+     *  @author Perttu Harvala
+     */
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historia);
 
-        /**
+        /*
          * Haetaan historia listview
-         * @author Perttu Harvala
          */
         ListView listView = (ListView)findViewById(R.id.historiaListaView);
 
-        /**
+        /*
          * Haetaan sharedpreferenceistä lista lisätyt tuotteet ja tehdään uusi lista jos sitä ei ole
          */
         SharedPreferences sharedPreferences2 = getSharedPreferences("shared preferences", MODE_PRIVATE);
@@ -56,27 +56,28 @@ public class Historia extends AppCompatActivity {
             lisatyt = new ArrayList<>();
         }
 
-        /**
+        /*
          * Tehdään historia-adapteri, joka käyttää tekmääni historia_view layoutia ja lisätyt listaa
          * Sitten liitetään se listviewiin
          */
         adapteri = new HistoriaAdapteri(getApplicationContext(), R.layout.historia_view, lisatyt);
         listView.setAdapter(adapteri);
 
-        /**
-         * Tehdään klikkauksen kuuntelijat listviewin sisällöille
-         */
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
+            /*
+             * Tehdään klikkauksen kuuntelijat listviewin sisällöille
+             */
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                /**
+                /*
                  * Annetaan klikatulle arvoksi klikatun näkymän sijainti i
                  * ja tehdään klikattutekstille arvoksi i + 1
                  */
                 klikattu = i;
                 int klikattuTeksti = i + 1;
 
-                /**
+                /*
                  * Tehdään varmistus ikkuna kun ollaan klikattu jotain näkymää, jossa sitten kysytään halutaanko kyseisen näkymän kofeiinilisäys poistaa
                  */
                 AlertDialog.Builder altdial = new AlertDialog.Builder(Historia.this);
@@ -84,7 +85,7 @@ public class Historia extends AppCompatActivity {
                         .setPositiveButton("Kyllä", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                /**
+                                /*
                                  * poistetaan klikattu lisäys ja tallennetaan muutokset sharedpreferenceen
                                  */
                                 lisatyt.remove(klikattu);
@@ -101,14 +102,14 @@ public class Historia extends AppCompatActivity {
                         .setNegativeButton("Ei", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                /**
+                                /*
                                  * suljetaan varoitusnäkymä
                                  */
                                 dialogInterface.cancel();
                             }
                         });
 
-                /**
+                /*
                  * Luodaan varoitusnäkymä
                  */
                 AlertDialog alert = altdial.create();
