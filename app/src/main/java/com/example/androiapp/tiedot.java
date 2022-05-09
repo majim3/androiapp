@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class tiedot extends AppCompatActivity {
     /**
-     * @Author Leo
+     * @author Leo
      * alhaalla tuodaan tallennettuja tietoja ja laitetaan ne text view:viin
      * @param savedInstanceState state
      */
