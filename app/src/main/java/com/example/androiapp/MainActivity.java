@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
- * Tässä on sovelluksen etusivu minne päästään kun ollaan syötetty tiedot jotka kelpaavat.
+ * Tassa on sovelluksen etusivu minne paastaan kun ollaan syotetty tiedot jotka kelpaavat.
  * @author Kaarle Häyhä
  */
 
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         /*
-         * Alempana luodaan tapahtuma missä näytölle ilmestyy ikkuna mikä kertoo, että kofeiinituotteen käytön lisääminen onnistui laskuriin.
+         * Alempana luodaan tapahtuma missa naytolle ilmestyy ikkuna mika kertoo, että kofeiinituotteen kayton lisaaminen onnistui laskuriin.
          */
 
         Intent intent2 = getIntent();
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         /*
-         * Tässä luodaan kohta etusivulle missä näkyy erilaisia faktoja kun faktakohtaa painetaan.
+         * Tassa luodaan kohta etusivulle missa näkyy erilaisia faktoja kun faktakohtaa painetaan.
          * Faktat ovat aina satunnaisia
          */
 
@@ -82,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Nappi minkä avulla voidaan satunnaistaa faktojen ilmestyminen
-     * @param v on mikä ottaa vastaan onClickeventin
+     * Nappi minka avulla voidaan satunnaistaa faktojen ilmestyminen
+     * @param v on mika ottaa vastaan onClickeventin
      */
 
     public void faktaNappi(View v){
@@ -92,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Nappi josta pääsee lisäys aktiviteettiin.
-     * @param v on mikä ottaa vastaan onClickeventin
+     * Nappi josta paasee lisäys aktiviteettiin.
+     * @param v on mika ottaa vastaan onClickeventin
      */
 
    public void lisays(View v){
@@ -103,8 +103,8 @@ public class MainActivity extends AppCompatActivity {
    }
 
     /**
-     * Nappi josta pääsee Historia aktiviteetiin.
-     * @param view on mikä ottaa vastaan onClickeventin
+     * Nappi josta paasee Historia aktiviteetiin.
+     * @param view on mika ottaa vastaan onClickeventin
      */
    public void historiaPainike(View view){
         historiaSivu = new Intent(MainActivity.this, Historia.class);
@@ -113,8 +113,8 @@ public class MainActivity extends AppCompatActivity {
    }
 
     /**
-     * Nappi josta pääsee Tiedot aktiviteettiin.
-     * @param v on mikä ottaa vastaan onClickeventin
+     * Nappi josta paasee Tiedot aktiviteettiin.
+     * @param v on mika ottaa vastaan onClickeventin
      */
 
    public void tietoNappi(View v){
@@ -133,8 +133,8 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         /*
-         * Alempana luodaan ehto, missä katsotaan onko käyttäjä syöttänyt tietoja sovellukselle vai ovatko ne tyhjinä.
-         * Jos tietoja ei löydy tai ole, sovellus heittää käyttäjän takaisin kohtaan missä syötetään tiedot.
+         * Alempana luodaan ehto, missä katsotaan onko kayttaja syottänyt tietoja sovellukselle vai ovatko ne tyhjina.
+         * Jos tietoja ei loydy tai ole, sovellus heittaa kayttajan takaisin kohtaan missa syotetaan tiedot.
          */
 
 
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         /*
-         * Tapahtuma missä luodaan lista tuotteille.
+         * Tapahtuma missa luodaan lista tuotteille.
          */
 
         SharedPreferences sharedPreferences2 = getSharedPreferences("shared preferences", MODE_PRIVATE);
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         /*
-         * Tapahtuma missä lisätään tuotteet kyseiseen listaan.
+         * Tapahtuma missa lisataan tuotteet kyseiseen listaan.
          */
 
 
@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
 
         /*
-         * tapahtuma missä otetaan saldonmäärä mitä on kulunut kofeiinituotteisiin ja asetetaan se TextViewiin.
+         * tapahtuma missa otetaan saldonmaara mita on kulunut kofeiinituotteisiin ja asetetaan se TextViewiin.
          */
 
 
@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         /*
-         * tapahtuma missä historiakohtaan lisätään tuote sekä aika ja päivämäärä milloin se lisättiin.
+         * tapahtuma missa historiakohtaan lisataan tuote sekä aika ja paivamaara milloin se lisattiin.
          */
 
         Calendar calendar = Calendar.getInstance();
@@ -222,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         /*
-         * Tapahtuma missä kofeiinimäärä otetaan SharedPreferenceistä.
+         * Tapahtuma missa kofeiinimaara otetaan SharedPreferenceista.
          */
         SharedPreferences sharedPreferences1 = getSharedPreferences("shared preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor1 = sharedPreferences1.edit();
@@ -235,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
         String ladattuKofeiini = sharedPreferenceskf.getString("Paivan kofeiini", "0");
 
         /*
-         * tapahtuma missä asetetaan otettu kofeiinimäärä päivässä etusivulle.
+         * tapahtuma missa asetetaan otettu kofeiinimaara paivassa etusivulle.
          */
 
         TextView kofeiiniTeksti = findViewById(R.id.textView4);
@@ -243,8 +243,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         /*
-         * Tapahtuma mikä kertoo mikä tilanne kofeiininkäytössä on.
-         * Eri eri vaihtoehtoihin asetettu eri värit.
+         * Tapahtuma mika kertoo mikä tilanne kofeiininkäytössä on.
+         * Eri eri vaihtoehtoihin asetettu eri varit.
          */
 
         TextView kofeiiniStatusTeksti = findViewById(R.id.kofeiiniStatus);

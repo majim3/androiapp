@@ -25,7 +25,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Tässä on tapahtuma missä käyttäjä syöttää tietonsa ja sovellus ottaa ne talteen.
+ * Tasss on tapahtuma missa kayttaja syottaa tietonsa ja sovellus ottaa ne talteen.
  * @author Kaarle Häyhä
  */
 
@@ -54,7 +54,7 @@ public class Alku extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         /*
-         *Alhaalla asetetaan onClick tapahtuma "ika" kohtaan missä avautuu kalenteri, josta käyttäjä voi valita oman syntymäpäivänsä..
+         *Alhaalla asetetaan onClick tapahtuma "ika" kohtaan missa avautuu kalenteri, josta kayttaja voi valita oman syntymapaivansa.
          */
 
 
@@ -63,7 +63,7 @@ public class Alku extends AppCompatActivity {
         ika = (EditText) findViewById(R.id.editTextTextPersonName2);
         ika.setOnClickListener(new View.OnClickListener() {
             /*
-             * onClick tapahtuma missä avautuu kalenteri
+             * onClick tapahtuma missa avautuu kalenteri
              */
             @Override
             public void onClick(View view) {
@@ -78,7 +78,7 @@ public class Alku extends AppCompatActivity {
                 date.show();
 
                 /*
-                 * Ylempänä määritetään ja luodaan kalenterinäkymä
+                 * Ylempana maaritetaan ja luodaan kalenterinakyma
                  */
 
 
@@ -87,7 +87,7 @@ public class Alku extends AppCompatActivity {
         });
 
         /**
-         * Alempana määritetaan ja luodaan päivämäärä date "String" ja pvm "Date" joita voidaan käyttää myöhemmin.
+         * Alempana maaritetaan ja luodaan paivamaara date "String" ja pvm "Date" joita voidaan kayttaa myohemmin.
          */
 
         paivamaara = new DatePickerDialog.OnDateSetListener() {
@@ -105,8 +105,8 @@ public class Alku extends AppCompatActivity {
 
 
     /**
-     * Tässä tehdään onClick tapahtuma "valmis" napille minkä jälkeen sovellus ottaa tiedot talteen ja vie käyttäjän toiseen aktiviteettiin.
-     * @param view on mikä ottaa vastaan onClickeventin
+     * Tassa tehdaan onClick tapahtuma "valmis" napille minka jalkeen sovellus ottaa tiedot talteen ja vie kayttajan toiseen aktiviteettiin.
+     * @param view on mika ottaa vastaan onClickeventin
      */
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -120,7 +120,7 @@ public class Alku extends AppCompatActivity {
         String viesti = nimi.getText().toString();
 
         /*
-         * Alempana ehtolausekkeet minkä avulla voidaan varmistaa ettei käyttäjä pääse läpi jos hän syöttää virheelliset tiedot.
+         * Alempana ehtolausekkeet minka avulla voidaan varmistaa ettei kayttaja paase lapi jos han syottaa virheelliset tiedot.
          */
 
         if(viesti.equals("")) {
@@ -136,13 +136,13 @@ public class Alku extends AppCompatActivity {
             return;
         }
         /*
-         Kun päästy läpi, sovellus aloittaa toisen aktiviteetin.
+         Kun paasty läpi, sovellus aloittaa toisen aktiviteetin.
          */
         startIntent();
     }
 
     /**
-     * Metodi jossa aktiviteetti käynnistyy ja käytetään SharedPreference toimintoa että saadaan käyttäjän tiedot talteen ja että niitä voidaan käyttää muualla.
+     * Metodi jossa aktiviteetti kaynnistyy ja kaytetaan SharedPreference toimintoa että saadaan kayttajan tiedot talteen ja etta niitä voidaan kayttaa muualla.
      */
     public void startIntent() {
         String name = nimi.getText().toString();
@@ -158,10 +158,10 @@ public class Alku extends AppCompatActivity {
     }
 
     /**
-     * Metodi jolla voidaan tarkistaa käyttäjän ikä vuosien erolla kalenteripäivämäärästä.
-     * Huom! Metodissa käytetään myös "minusMonths(1)" koska Androidstudio aloittaa kuukaudet 0 jonka takia Tammikuu = 0 ja Helmikuu = 1 jne.
-     * @param date mikä on päivämäärä
-     * @return Lähetetään takaisin päivämäärä
+     * Metodi jolla voidaan tarkistaa kayttajan ika vuosien erolla kalenteripaivamaarasta.
+     * Huom! Metodissa kaytetaan myos "minusMonths(1)" koska Androidstudio aloittaa kuukaudet 0 jonka takia Tammikuu = 0 ja Helmikuu = 1 jne.
+     * @param date mika on paivamaara
+     * @return Lahetetaan takaisin paivamaara
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean validateAge(LocalDate date) {
@@ -170,8 +170,8 @@ public class Alku extends AppCompatActivity {
     }
 
     /**
-     * Alempana luodaan ehto, missä katsotaan onko käyttäjä syöttänyt tietoja sovellukselle vai ovatko ne tyhjinä.
-     * Jos tietoja ei löydy tai ole, sovellus heittää käyttäjän takaisin kohtaan missä syötetään tiedot.
+     * Alempana luodaan ehto, missä katsotaan onko kayttaja syattanyt tietoja sovellukselle vai ovatko ne tyhjina.
+     * Jos tietoja ei loydy tai ole, sovellus heittaa kayttajan takaisin kohtaan missä syotetaan tiedot.
      */
 
     protected void onStart() {
