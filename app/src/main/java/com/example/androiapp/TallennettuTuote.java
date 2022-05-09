@@ -12,7 +12,7 @@ public class TallennettuTuote {
      * @Author Leo
      *Alhaalla konstruktori Tallennettu tuotteille muuttujille
      * @param nimi palauttaa nimen
-     * @param kofeiini palauttaaa kofeiini määrän
+     * @param kofeiini palauttaaa kofeiini maaran
      * @param hinta palauttaa hinnan
      */
 
