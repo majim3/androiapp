@@ -41,7 +41,7 @@ public class HistoriaAdapteri extends ArrayAdapter<LisattyTuote> {
     /**
      * Maaritellaan mita adapterin tekemissa nakymissa nakyy
      * @param position syotetty position
-     * @param convertView syotetty näkyma
+     * @param convertView syotetty nakyma
      * @param parent syotetty Viewgroup
      * @return palauttaa lopullisen nakyman
      *
@@ -49,7 +49,7 @@ public class HistoriaAdapteri extends ArrayAdapter<LisattyTuote> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
         /*
-         * Tehdaan lisattytuote, jonka avulla haetaan arvot nakymien tekstinakymille
+         * Tehdään lisattytuote, jonka avulla haetaan arvot näkymien tekstinäkymille
          */
         LisattyTuote lisatty = lisatyt.get(position);
         if (convertView == null){

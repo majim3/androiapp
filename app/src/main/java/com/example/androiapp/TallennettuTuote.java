@@ -33,7 +33,7 @@ public class TallennettuTuote {
     /**
      * @author Leo
      * palauttaa arvot muuttujille
-     * @return
+     * @return palauttaa arvoja
      */
 
     @Override

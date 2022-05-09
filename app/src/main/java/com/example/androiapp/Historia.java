@@ -26,7 +26,7 @@ public class Historia extends AppCompatActivity {
     HistoriaAdapteri adapteri;
 
     /**
-     *  Tehdaan lista lisatyt, johon tulee lisätyt kofeiininkaytot.
+     *  Tehdaan lista lisatyt, johon tulee lisatyt kofeiininkaytot.
      *  Sitten int klikattu, joka kertoo mita kohtaa listviewista klikattiin.
      *  Lopuksi viela tehdaan omatekoinen adapteri, joka kayttaa tekemaani layoutia.
      *  @author Perttu Harvala
