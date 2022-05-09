@@ -38,8 +38,8 @@ public class tiedot extends AppCompatActivity {
 
     /**
      * @author Leo
-     * Alhaalla on nappi jolla poistetaan henkilön tiedot halutessa
-     * ja heitetään takas alkuun jossa luodaan käyttäjä
+     * Alhaalla on nappi jolla poistetaan henkilan tiedot halutessa
+     * ja heitetaan takas alkuun jossa luodaan kayttaja
      * @param view nappi
      */
 
