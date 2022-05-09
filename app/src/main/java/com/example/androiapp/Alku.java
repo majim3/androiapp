@@ -24,6 +24,10 @@ import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Tässä on tapahtuma missä käyttäjä syöttää tietonsa ja sovellus ottaa ne talteen.
+ * @author Kaarle Häyhä
+ */
 
 public class Alku extends AppCompatActivity {
 
@@ -37,8 +41,7 @@ public class Alku extends AppCompatActivity {
     public  LocalDate pvm;
 
     /**
-     * Tässä on tapahtuma missä käyttäjä syöttää tietonsa ja sovellus ottaa ne talteen.
-     * @author Kaarle Häyhä
+     * OnCreate metodi
      * @param savedInstanceState savedInstanceState
      */
 
@@ -50,7 +53,7 @@ public class Alku extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        /**
+        /*
          *Alhaalla asetetaan onClick tapahtuma "ika" kohtaan missä avautuu kalenteri, josta käyttäjä voi valita oman syntymäpäivänsä..
          */
 
@@ -59,9 +62,8 @@ public class Alku extends AppCompatActivity {
         nimi = (EditText) findViewById(R.id.editTextTextPersonName);
         ika = (EditText) findViewById(R.id.editTextTextPersonName2);
         ika.setOnClickListener(new View.OnClickListener() {
-            /**
+            /*
              * onClick tapahtuma missä avautuu kalenteri
-             * @param view on mikä ottaa vastaan onClickeventin
              */
             @Override
             public void onClick(View view) {
@@ -75,7 +77,7 @@ public class Alku extends AppCompatActivity {
                 date.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 date.show();
 
-                /**
+                /*
                  * Ylempänä määritetään ja luodaan kalenterinäkymä
                  */
 
@@ -117,7 +119,7 @@ public class Alku extends AppCompatActivity {
         EditText nimi = (EditText) findViewById(R.id.editTextTextPersonName);
         String viesti = nimi.getText().toString();
 
-        /**
+        /*
          * Alempana ehtolausekkeet minkä avulla voidaan varmistaa ettei käyttäjä pääse läpi jos hän syöttää virheelliset tiedot.
          */
 
@@ -133,8 +135,8 @@ public class Alku extends AppCompatActivity {
             teksti.setText("Ikä ei voi olla alle 15!");
             return;
         }
-        /**
-         * Kun päästy läpi, sovellus aloittaa toisen aktiviteetin.
+        /*
+         Kun päästy läpi, sovellus aloittaa toisen aktiviteetin.
          */
         startIntent();
     }
@@ -166,12 +168,15 @@ public class Alku extends AppCompatActivity {
         LocalDate currentDate = LocalDate.now();
         return date.isBefore(currentDate.minusYears(15).minusMonths(1));
     }
+
+    /**
+     * Alempana luodaan ehto, missä katsotaan onko käyttäjä syöttänyt tietoja sovellukselle vai ovatko ne tyhjinä.
+     * Jos tietoja ei löydy tai ole, sovellus heittää käyttäjän takaisin kohtaan missä syötetään tiedot.
+     */
+
     protected void onStart() {
         super.onStart();
-        /**
-         * Alempana luodaan ehto, missä katsotaan onko käyttäjä syöttänyt tietoja sovellukselle vai ovatko ne tyhjinä.
-         * Jos tietoja ei löydy tai ole, sovellus heittää käyttäjän takaisin kohtaan missä syötetään tiedot.
-         */
+
 
 
         SharedPreferences sharedPreferencesUser = getSharedPreferences("shared preferences", MODE_PRIVATE);

@@ -20,10 +20,10 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 
+
+
 public class TuotteenTallennus extends AppCompatActivity {
-    /**
-     * Tehdään lista tallennetuille tuotteille
-     */
+    
     ArrayList<TallennettuTuote> tallennetut;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -48,7 +48,7 @@ public class HistoriaAdapteri extends ArrayAdapter<LisattyTuote> {
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
-        /**
+        /*
          * Tehdään lisattytuote, jonka avulla haetaan arvot näkymien tekstinäkymille
          */
         LisattyTuote lisatty = lisatyt.get(position);

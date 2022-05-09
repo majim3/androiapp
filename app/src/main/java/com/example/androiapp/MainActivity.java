@@ -19,6 +19,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**
+ * Tässä on sovelluksen etusivu minne päästään kun ollaan syötetty tiedot jotka kelpaavat.
+ * @author Kaarle Häyhä
+ */
+
 public class MainActivity extends AppCompatActivity {
     private TextView fakta;
     private int rand;
@@ -30,8 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * Tässä on sovelluksen etusivu minne päästään kun ollaan syötetty tiedot jotka kelpaavat.
-     * @author Kaarle Häyhä
+     *onCreate metodi
      * @param savedInstanceState savedInstanceState
      */
 
@@ -42,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /**
+        /*
          * Alempana luodaan tapahtuma missä näytölle ilmestyy ikkuna mikä kertoo, että kofeiinituotteen käytön lisääminen onnistui laskuriin.
          */
 
@@ -61,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        /**
+        /*
          * Tässä luodaan kohta etusivulle missä näkyy erilaisia faktoja kun faktakohtaa painetaan.
          * Faktat ovat aina satunnaisia
          */
@@ -119,15 +123,20 @@ public class MainActivity extends AppCompatActivity {
    }
 
 
+    /**
+     * onStart metodi
+     */
 
 
     @Override
     protected void onStart() {
         super.onStart();
-        /**
+
+        /*
          * Alempana luodaan ehto, missä katsotaan onko käyttäjä syöttänyt tietoja sovellukselle vai ovatko ne tyhjinä.
          * Jos tietoja ei löydy tai ole, sovellus heittää käyttäjän takaisin kohtaan missä syötetään tiedot.
          */
+
 
 
         SharedPreferences sharedPreferencesUser = getSharedPreferences("shared preferences", MODE_PRIVATE);
@@ -139,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-        /**
+        /*
          * Tapahtuma missä luodaan lista tuotteille.
          */
 
@@ -153,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        /**
+        /*
          * Tapahtuma missä lisätään tuotteet kyseiseen listaan.
          */
 
@@ -171,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("Saldo", saldoString);
         editor.apply();
 
-        /**
+        /*
          * tapahtuma missä otetaan saldonmäärä mitä on kulunut kofeiinituotteisiin ja asetetaan se TextViewiin.
          */
 
@@ -193,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
             lisatyt = new ArrayList<>();
         }
 
-        /**
+        /*
          * tapahtuma missä historiakohtaan lisätään tuote sekä aika ja päivämäärä milloin se lisättiin.
          */
 
@@ -212,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        /**
+        /*
          * Tapahtuma missä kofeiinimäärä otetaan SharedPreferenceistä.
          */
         SharedPreferences sharedPreferences1 = getSharedPreferences("shared preferences", MODE_PRIVATE);
@@ -225,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferenceskf = getSharedPreferences("shared preferences", MODE_PRIVATE);
         String ladattuKofeiini = sharedPreferenceskf.getString("Paivan kofeiini", "0");
 
-        /**
+        /*
          * tapahtuma missä asetetaan otettu kofeiinimäärä päivässä etusivulle.
          */
 
@@ -233,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
         kofeiiniTeksti.setText("Tänään käytetty kofeiini: " + ladattuKofeiini + " mg");
 
 
-        /**
+        /*
          * Tapahtuma mikä kertoo mikä tilanne kofeiininkäytössä on.
          * Eri eri vaihtoehtoihin asetettu eri värit.
          */
